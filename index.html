@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#221E1A">
-<script>(function(){var t='dark';try{if(localStorage.getItem('gm-tema')==='light')t='light';}catch(e){}document.documentElement.setAttribute('data-theme',t);try{document.querySelector('meta[name="theme-color"]').setAttribute('content',t==='dark'?'#221E1A':'#FFFFFF');}catch(e){}})();</script>
+<meta name="theme-color" content="#121212">
+<meta name="color-scheme" content="dark">
+<script>(function(){var t='dark';try{if(localStorage.getItem('gm-tema')==='light')t='light';}catch(e){}document.documentElement.setAttribute('data-theme',t);try{document.querySelector('meta[name="theme-color"]').setAttribute('content',t==='dark'?'#121212':'#FFFFFF');document.querySelector('meta[name="color-scheme"]').setAttribute('content',t==='dark'?'dark':'only light');}catch(e){}})();</script>
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -23,14 +24,15 @@
   --ok:#3E8E4E; --warn:#C08A1E;
   --f-body:"Source Sans 3", "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
   --f-head:"Source Serif 4", Georgia, "Times New Roman", serif;
+  color-scheme:only light;
 }
 @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
-  --bg:#181512; --surface:#221E1A; --stripe:#2A251F; --line:#3A332C; --ink:#EEE7DE; --muted:#A99E92;
-  --accent:#D59D63; --accent-ink:#1A120B; --done:#6F675F; --chip:#2F2923; --badge:#4A3A16; --badge-ink:#F2D58E;
+  --bg:#22201D; --surface:#121212; --stripe:#1A1917; --line:#3D3A36; --ink:#EEE9E3; --muted:#ACA39A;
+  --accent:#CF9663; --accent-ink:#121212; --done:#6F6A64; --chip:#2C2925; --badge:#392D0B; --badge-ink:#DEB370;
   --ok:#6CC27C; --warn:#E2B04A; color-scheme:dark } }
 :root[data-theme="dark"]{
-  --bg:#181512; --surface:#221E1A; --stripe:#2A251F; --line:#3A332C; --ink:#EEE7DE; --muted:#A99E92;
-  --accent:#D59D63; --accent-ink:#1A120B; --done:#6F675F; --chip:#2F2923; --badge:#4A3A16; --badge-ink:#F2D58E;
+  --bg:#22201D; --surface:#121212; --stripe:#1A1917; --line:#3D3A36; --ink:#EEE9E3; --muted:#ACA39A;
+  --accent:#CF9663; --accent-ink:#121212; --done:#6F6A64; --chip:#2C2925; --badge:#392D0B; --badge-ink:#DEB370;
   --ok:#6CC27C; --warn:#E2B04A; color-scheme:dark }
 
 *{box-sizing:border-box}
@@ -305,7 +307,9 @@ details.energy>summary:focus-visible{outline:2px solid var(--accent);outline-off
     document.documentElement.setAttribute('data-theme', t);
     tb.setAttribute('aria-label', t === 'dark' ? 'Váltás világos témára' : 'Váltás sötét témára');
     var m = document.querySelector('meta[name="theme-color"]');
-    if (m) m.setAttribute('content', t === 'dark' ? '#221E1A' : '#FFFFFF');
+    if (m) m.setAttribute('content', t === 'dark' ? '#121212' : '#FFFFFF');
+    var cs = document.querySelector('meta[name="color-scheme"]');
+    if (cs) cs.setAttribute('content', t === 'dark' ? 'dark' : 'only light');
   }
   applyTheme(load('gm-tema') === 'light' ? 'light' : 'dark');
   tb.addEventListener('click', function(){
